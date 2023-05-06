@@ -1,0 +1,60 @@
+/**
+ *  @author Phat Pham
+ *  @date 9/8/2021
+ *  @file h01.cpp
+ */
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+string STUDENT = "ppham142";  // Add your Canvas login name
+extern string ASSIGNMENT;
+
+
+/**
+ * One line describing what this program does.
+ * @return 0 for success.
+ */
+int run()
+{
+    // Add your implementation comments here
+
+    // Write your code here
+
+int hours;
+    int minutes;
+    int durHour;
+    int durMinute;
+
+
+    cout << "Time in hour: ";
+    cin >> hours;
+    cin.get();
+    cout << "Time in minute: ";
+    cin >> minutes;
+
+    cout << "Duration in hour: ";
+    cin >> durHour;
+    cin.get();
+    cout << "Duration in minute: ";
+    cin >> durMinute;
+
+    int time = hours * 60 + minutes;
+    int dur = durHour * 60 + durMinute;
+    int after = time + dur;
+    int before = time - dur + 60 * 24;
+    int afterHour = after / 60 % 12 + 11;
+        afterHour = afterHour % 12 + 1;
+    int afterMinute = after % 60;
+    int beforeHour = before / 60 % 12 + 11;
+        beforeHour = beforeHour % 12 + 1;
+    int beforeMinute = before % 60;
+
+    cout << setfill('0');
+    cout << setw(2) << durHour << ":" << durMinute<< " hours after, and before, "
+    << hours << ":" << minutes << " is "
+    << "[" << abs(afterHour)<< ":" << setw(2) << abs(afterMinute) << ", " << abs(beforeHour) << ":" << setw(2) << abs(beforeMinute) << "]" <<  endl;
+
+    return 0;
+}
